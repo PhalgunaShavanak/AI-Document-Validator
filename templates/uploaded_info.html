@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Uploaded Information</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+        color: #333;
+        padding: 40px;
+        text-align: center;
+      }
+      h1 {
+        font-size: 2.5em;
+        color: #6c3483;
+        margin-bottom: 30px;
+      }
+      p {
+        font-size: 1.2em;
+        color: #444;
+        margin: 15px 0;
+        background: #f7f1e3;
+        padding: 10px;
+        border-radius: 5px;
+        display: inline-block;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      a {
+        display: inline-block;
+        background-color: #6c3483;
+        color: #fff;
+        padding: 12px 25px;
+        text-decoration: none;
+        font-size: 1.2em;
+        border-radius: 5px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        margin-top: 20px;
+      }
+      a:hover {
+        background-color: #8e44ad;
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Uploaded Information</h1>
+    <p>Vendor Name: {{ info.vendor_name }}</p>
+    <p>Price: {{ info.price }}</p>
+    <p>GST Number: {{ info.gst_number }}</p>
+    <p>Address: {{ info.address }}</p>
+    <a href="{{ url_for('index') }}">Go back</a>
+  </body>
+</html>

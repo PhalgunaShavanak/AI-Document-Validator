@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comparison Result</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        color: #333;
+        padding: 40px;
+        text-align: center;
+      }
+      h1 {
+        font-size: 2.5em;
+        color: #c0392b;
+        margin-bottom: 30px;
+      }
+      h2 {
+        font-size: 1.8em;
+        color: #8e44ad;
+        margin-top: 30px;
+      }
+      .comparison-container {
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+        margin: 20px 0;
+      }
+      .info-box {
+        flex: 1;
+        margin: 0 10px;
+        padding: 20px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        text-align: left;
+      }
+      p {
+        font-size: 1.2em;
+        color: #444;
+        margin: 10px 0;
+        padding: 10px;
+        border-radius: 5px;
+        background: #f7f1e3;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      .discrepancy {
+        color: red;
+        font-weight: bold;
+        border: 2px solid red;
+        padding: 10px;
+        border-radius: 5px;
+        background: #ffe0e0;
+      }
+      a {
+        display: inline-block;
+        background-color: #c0392b;
+        color: #fff;
+        padding: 12px 25px;
+        text-decoration: none;
+        font-size: 1.2em;
+        border-radius: 5px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        margin-top: 20px;
+      }
+      a:hover {
+        background-color: #e74c3c;
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Comparison Result</h1>
+
+    <div class="comparison-container">
+      <div class="info-box">
+        <h2>Quotation Info</h2>
+        <p
+          class="{% if 'vendor_name' in discrepancies %}discrepancy{% endif %}"
+        >
+          Vendor Name: {{ quotation_info.vendor_name }}
+        </p>
+        <p class="{% if 'price' in discrepancies %}discrepancy{% endif %}">
+          Price: {{ quotation_info.price }}
+        </p>
+        <p class="{% if 'gst_number' in discrepancies %}discrepancy{% endif %}">
+          GST Number: {{ quotation_info.gst_number }}
+        </p>
+        <p class="{% if 'address' in discrepancies %}discrepancy{% endif %}">
+          Address: {{ quotation_info.address }}
+        </p>
+      </div>
+
+      <div class="info-box">
+        <h2>Invoice Info</h2>
+        <p
+          class="{% if 'vendor_name' in discrepancies %}discrepancy{% endif %}"
+        >
+          Vendor Name: {{ invoice_info.vendor_name }}
+        </p>
+        <p class="{% if 'price' in discrepancies %}discrepancy{% endif %}">
+          Price: {{ invoice_info.price }}
+        </p>
+        <p class="{% if 'gst_number' in discrepancies %}discrepancy{% endif %}">
+          GST Number: {{ invoice_info.gst_number }}
+        </p>
+        <p class="{% if 'address' in discrepancies %}discrepancy{% endif %}">
+          Address: {{ invoice_info.address }}
+        </p>
+      </div>
+    </div>
+
+    {% if discrepancies %}
+    <h2>Result: Mismatches found!</h2>
+    {% else %}
+    <h2>Result: No mismatches found.</h2>
+    {% endif %}
+
+    <a href="{{ url_for('index') }}">Go back</a>
+  </body>
+</html>

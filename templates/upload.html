@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upload Quotation and Invoice</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+        color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      form {
+        background: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+      h1 {
+        font-size: 2em;
+        color: #d35400;
+        margin-bottom: 20px;
+      }
+      label {
+        font-size: 1.2em;
+        color: #555;
+      }
+      input[type="file"] {
+        margin-top: 10px;
+        margin-bottom: 20px;
+      }
+      input[type="submit"] {
+        background-color: #d35400;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+      }
+      input[type="submit"]:hover {
+        background-color: #e67e22;
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+  <body>
+    <form method="post" enctype="multipart/form-data">
+      <h1>Upload Quotation and Invoice</h1>
+      <label for="quotation_file">Upload Quotation:</label><br />
+      <input
+        type="file"
+        name="quotation_file"
+        id="quotation_file"
+      /><br /><br />
+
+      <label for="invoice_file">Upload Invoice:</label><br />
+      <input type="file" name="invoice_file" id="invoice_file" /><br /><br />
+
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+</html>
